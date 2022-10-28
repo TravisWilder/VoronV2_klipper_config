@@ -10,7 +10,7 @@
 ### Path to your config folder where you want to store your input shaper files
 IS_FOLDER=~/klipper_config/input_shaper
 ### number of results you want to keep
-STORE_RESULTS=5
+STORE_RESULTS=2
 
 #####################################################################
 ################ !!! DO NOT EDIT BELOW THIS LINE !!! ################
