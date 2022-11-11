@@ -10,7 +10,7 @@
 ### Path to your config folder where you want to store your input shaper files
 IS_FOLDER=~/klipper_config/input_shaper
 ### number of results you want to keep
-STORE_RESULTS=2
+STORE_RESULTS=5
 
 #####################################################################
 ################ !!! DO NOT EDIT BELOW THIS LINE !!! ################
@@ -63,10 +63,10 @@ function plot_belt_graph {
   for i in "${belts[@]}"; do
     csv="$(/usr/bin/ls -tr /tmp/raw_data_axis*"${i}"* | sort -nr | awk 'NR==1')"
     mv "${csv}" /tmp/raw_data_belt_"$i"_"${date_ext}".csv
-    src+=("/tmp/raw_data_belt_${i}_${date_ext}.csv")
+    src+=(/tmp/raw_data_belt_"$i"_"${date_ext}".csv)
   done
-    echo "Generate Graph for belts ..."
-    "${generator}" -c "${src[@]}" -o "${isf}"/resonances_belts_"${date_ext}".png
+  echo "Generate Graph for belts ..."
+  "${generator}" -c ${src[@]} -o "${isf}"/resonances_belts_"${date_ext}".png
   for f in "${src[@]}"; do
     mv "${f}" "${isf}"/
   done
