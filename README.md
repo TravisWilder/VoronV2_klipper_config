@@ -1,5 +1,7 @@
 !!! Use on own risk !!!
 
+Credits: https://github.com/Frix-x/klipper-voron-V2
+
 # klipper_config
 
 - V2.4 350mm  
