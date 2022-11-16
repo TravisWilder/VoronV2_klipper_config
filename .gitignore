@@ -3,9 +3,11 @@
 .mainsail.json
 .variables.stb
 printer-*.cfg
-*.png
+#*.png
 *.csv
-*.jpg
+*.tgz
+*.tar.gz
+#*.jpg
 /logs
 *.txt
 .moonraker.conf.bkp
