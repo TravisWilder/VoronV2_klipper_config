@@ -11,3 +11,6 @@ printer-*.cfg
 /logs
 *.txt
 .moonraker.conf.bkp
+adxl_results/vibrations/*.png
+*.old
+adxl_results/inputshaper/*.png
