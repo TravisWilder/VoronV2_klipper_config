@@ -22,16 +22,16 @@ Rebuild
 
 # Linking scripts
 
-'''
+```
 cd ~/klipper/klippy/extras
 ln -s /home/pi/klipper_config/script/ercf.py ercf.py
 ln -s /home/pi/klipper_config/script/ercf_servo.py ercf_servo.py
 ln -s /home/pi/klipper_config/script/ercf_encoder.py ercf_encoder.py
 ln -s /home/pi/klipper_config/script/gcode_shell_command.py gcode_shell_command.py
-'''
+```
 
 # Prusa Slicer Start G-Code
-'''
+```
 M190 S0
 M109 S0 ; uncomment to remove set&wait temp gcode added automatically after this start gcode
 M221 S100
@@ -48,4 +48,4 @@ SET_GCODE_VARIABLE MACRO=CLEAN_NOZZLE VARIABLE=hasrun VALUE=False
 WIPE
 SET_FILAMENT_SENSOR SENSOR=encoder_sensor ENABLE=1
 PRIME_LINE
-'''
+```
