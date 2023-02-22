@@ -24,10 +24,12 @@ Rebuild
 
 ```
 cd ~/klipper/klippy/extras
-ln -s /home/pi/klipper_config/script/ercf.py ercf.py
-ln -s /home/pi/klipper_config/script/ercf_servo.py ercf_servo.py
-ln -s /home/pi/klipper_config/script/ercf_encoder.py ercf_encoder.py
-ln -s /home/pi/klipper_config/script/gcode_shell_command.py gcode_shell_command.py
+ln -s ~/klipper_config/script/ercf.py ercf.py
+ln -s ~/klipper_config/script/ercf_servo.py ercf_servo.py
+ln -s ~/klipper_config/script/ercf_encoder.py ercf_encoder.py
+ln -s ~/klipper_config/script/gcode_shell_command.py gcode_shell_command.py
+cd ~/klipper_config/macros/helpers
+ln -s ~/moonraker-timelapse/klipper_macro/timelapse.cfg timelapse.cfg
 ```
 
 # Prusa Slicer Start G-Code
