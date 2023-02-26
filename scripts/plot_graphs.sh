@@ -30,8 +30,8 @@
 
 
 #################################################################################################################
-RESULTS_FOLDER=~/klipper_config/adxl_results # Path to the folder where storing the results files
-SCRIPTS_FOLDER=~/klipper_config/scripts # Path to the folder where the graph_vibrations.py is located
+RESULTS_FOLDER=~/printer_data/config/adxl_results # Path to the folder where storing the results files
+SCRIPTS_FOLDER=~/printer_data/config/scripts # Path to the folder where the graph_vibrations.py is located
 KLIPPER_FOLDER=~/klipper # Path of the klipper main folder
 STORE_RESULTS=3 # Number of results to keep (older files are automatically cleaned). 0 to keep them indefinitely
 #################################################################################################################
@@ -60,7 +60,7 @@ function plot_belts_graph {
   local date_ext generator filename belt
   date_ext="$(date +%Y%m%d_%H%M%S)"
   generator="${KLIPPER_FOLDER}/scripts/graph_accelerometer.py"
-  
+  sync && sleep 2
   while read filename; do
     belt="$(basename "${filename}" | cut -d '_' -f4 | cut -d '.' -f1 | sed -e 's/\(.*\)/\U\1/')"
     mv "${filename}" "${isf}"/belts/belt_"${date_ext}"_"${belt}".csv
@@ -74,7 +74,8 @@ function plot_vibr_graph {
   local date_ext generator filename newfilename
   date_ext="$(date +%Y%m%d_%H%M%S)"
   generator="${SCRIPTS_FOLDER}/graph_vibrations.py"
-  
+  sync && sleep 2
+
   while read filename; do
     newfilename="$(echo ${filename} | sed -e "s/\\/tmp\/adxl345/vibr_${date_ext}/")"
     mv "${filename}" "${isf}"/vibrations/"${newfilename}"
@@ -154,7 +155,7 @@ case ${1} in
   echo -e "\nUsage:"
   echo -e "\t${0} SHAPER, BELTS or VIBRATIONS"
   echo -e "\t\tSHAPER\tGenerate input shaper diagram"
-  echo -e "\t\tBELT\tGenerate belt tension diagram"
+  echo -e "\t\tBELTS\tGenerate belt tension diagram"
   echo -e "\t\tVIBRATIONS axis-name\tGenerate vibration response diagram\n"
   exit 1
 esac
