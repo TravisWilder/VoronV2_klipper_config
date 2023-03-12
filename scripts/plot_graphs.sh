@@ -41,6 +41,8 @@ STORE_RESULTS=3 # Number of results to keep (older files are automatically clean
 ################ !!! DO NOT EDIT BELOW THIS LINE !!! ################
 #####################################################################
 
+export LC_ALL=C
+
 function plot_shaper_graph {
   local generator filename newfilename date axis
   generator="${KLIPPER_FOLDER}/scripts/calibrate_shaper.py"
